@@ -45,8 +45,8 @@ class Query:
         # Parse arguments
         origin = self.match_station(args['from'][0])
         destination = self.match_station(args['to'][0])
-        date = self.parse_date(args['date'])
-        time = self.parse_time(args['time'])
+        date = self.parse_date(args['date'][0])
+        time = self.parse_time(args['time'][0])
         when = self.when_map[args['when']]
         # Form argument list and join
         pieces = [

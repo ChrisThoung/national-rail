@@ -44,7 +44,7 @@ parser_plan.add_argument(
     '--date',
     nargs=1,
     metavar='DATE',
-    default='today',
+    default=['today'],
     type=str,
     required=False,
     help='set date for travel')
@@ -52,7 +52,7 @@ parser_plan.add_argument(
     '--time',
     nargs=1,
     metavar='TIME',
-    default='now',
+    default=['now'],
     type=str,
     required=False,
     help='set time for travel')
