@@ -115,13 +115,15 @@ parser_favourites.add_argument(
 
 # Main-scope code
 if __name__ == '__main__':
+    # Parse arguments
     args = parser.parse_args()
+    # Set up Query object
+    from nationalrail.query import Query
+    q = Query(args)
+    # Process according to selected command
     if args.command == 'plan':
-        from nationalrail.query import Query
-        q = Query(args)
-        q.parse()
-        q.call()
+        q.plan()
     elif args.command == 'live':
-        pass
+        raise ValueError
     elif args.command == 'favourites':
-        pass
+        raise ValueError
