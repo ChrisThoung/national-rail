@@ -5,6 +5,21 @@ import os
 from distutils.core import setup
 
 
+# Specify the file of station codes, available from:
+# http://www.nationalrail.co.uk/stations_destinations/48541.aspx
+station_codes = 'station_codes.csv'
+
+# Write station codes to package before installing package
+with open(station_codes, 'rt') as f:
+    table = f.read().splitlines()[1:]
+table = [r.split(',')[0:2] for r in table]
+lookup = dict(zip(
+    [r[0] for r in table],
+    [r[1] for r in table]))
+with open(os.path.join('nationalrail', 'codes.py'), 'wt') as f:
+    print('lookup =', lookup, file=f)
+
+
 # Version numbering follows the conventions of Semantic Versioning 2.0.0:
 # 1. MAJOR - changes with backwards-incompatible modifications to the API
 # 2. MINOR - for backwards-compatible additions to functionality
