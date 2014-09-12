@@ -61,7 +61,7 @@ parser_plan.add_argument(
     nargs=1,
     metavar='WHEN',
     choices=['leaving', 'arriving', 'first', 'last'],
-    default='leaving',
+    default=['leaving'],
     type=str,
     required=False,
     help='when to leave relative to the other options')

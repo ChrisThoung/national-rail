@@ -47,7 +47,7 @@ class Query:
         destination = self.match_station(args['to'][0])
         date = self.parse_date(args['date'][0])
         time = self.parse_time(args['time'][0])
-        when = self.when_map[args['when']]
+        when = self.when_map[args['when'][0]]
         # Form argument list and join
         pieces = [
             'http://ojp.nationalrail.co.uk/service/timesandfares',
