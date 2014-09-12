@@ -90,8 +90,25 @@ class Query:
         Where there is no match, an error is raised.
 
         """
+        # Check for `station` in `lookup`
         if station not in lookup.values():
-            raise ValueError('Unable to locate %s in station list' % (station))
+            # Identify all long-form name matches in `lookup`
+            matches = [s for s in lookup.keys() if re.match(station, s)]
+            matches = list(sorted(matches))
+            # If more than one match, print list
+            if len(matches) > 1:
+                print('Multiple matches found for \'%s\':' % (station))
+                for m in matches:
+                    print('  ', lookup[m], m)
+                print('Selecting first match')
+            # If no matches, raise error
+            elif len(matches) == 0:
+                raise ValueError(
+                    'Unable to locate \'%s\' in station list' %
+                    (station))
+            # Extract first match
+            station = lookup[matches[0]]
+        # Return
         return station
 
     def parse_date(self, date):
