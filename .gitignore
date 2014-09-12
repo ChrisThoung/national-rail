@@ -56,3 +56,6 @@ target/
 # Setup files
 nationalrail/codes.py
 nationalrail/version.py
+
+# Input data
+station_codes.csv
