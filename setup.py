@@ -62,8 +62,9 @@ setup(
         'scripts/national-rail.py',
         ],
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Console',
+        'Intended Audience :: End Users/Desktop',
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
