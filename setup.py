@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
+import csv
 import os
 from distutils.core import setup
 
@@ -10,12 +11,11 @@ from distutils.core import setup
 station_codes = 'station_codes.csv'
 
 # Write station codes to package before installing package
+lookup = {}
 with open(station_codes, 'rt') as f:
-    table = f.read().splitlines()[1:]
-table = [r.split(',')[0:2] for r in table]
-lookup = dict(zip(
-    [r[0] for r in table],
-    [r[1] for r in table]))
+    f = csv.reader(f)
+    for row in f:
+        lookup[row[0]] = row[1]
 with open(os.path.join('nationalrail', 'codes.py'), 'wt') as f:
     print('lookup =', lookup, file=f)
 
