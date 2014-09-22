@@ -100,7 +100,8 @@ class Query:
                 print('Multiple matches found for \'%s\':' % (station))
                 for m in matches:
                     print('  ', lookup[m], m)
-                print('Selecting first match')
+                print('Selecting first match (%s: %s)' %
+                      (lookup[matches[0]], matches[0]))
             # If no matches, raise error
             elif len(matches) == 0:
                 raise ValueError(
