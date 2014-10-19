@@ -71,6 +71,33 @@ parser_plan.add_argument(
     required=False,
     help='show only direct trains')
 
+# 'live' sub-parser
+parser_live = subparsers.add_parser(
+    'live',
+    help='check a live departure or arrival')
+# Required arguments: from, to
+parser_live.add_argument(
+    'from',
+    nargs=1,
+    metavar='FROM',
+    default=None,
+    type=str,
+    help='set origin station')
+parser_live.add_argument(
+    'to',
+    nargs=1,
+    metavar='TO',
+    default=None,
+    type=str,
+    help='set destination station')
+parser_live.add_argument(
+    'direction',
+    nargs=1,
+    metavar='DIRECTION',
+    choices=['dep', 'arr'],
+    default='dep',
+    type=str,
+    help='whether to bring up live departures or arrivals')
 
 # Main-scope code
 if __name__ == '__main__':
@@ -82,3 +109,5 @@ if __name__ == '__main__':
     # Process according to selected command
     if args.command == 'plan':
         q.plan()
+    elif args.command == 'live':
+        pass
