@@ -26,9 +26,9 @@ with open(os.path.join('nationalrail', 'codes.py'), 'wt') as f:
 # 3. PATCH - for backwards-compatible bug fixes
 # Source: http://semver.org/spec/v2.0.0.html
 MAJOR = 0
-MINOR = 1
+MINOR = 2
 PATCH = 0
-for_release = True
+for_release = False
 
 VERSION = '%d.%d.%d' % (MAJOR, MINOR, PATCH)
 if not for_release:
