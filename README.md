@@ -77,7 +77,7 @@ Other valid options are:
 ## Installation
 
 This package needs a list of station codes. These are available
-(here)[http://www.nationalrail.co.uk/stations_destinations/48541.aspx] in the
+[here](http://www.nationalrail.co.uk/stations_destinations/48541.aspx) in the
 required format.
 
 The necesary format is a CSV file with two columns as follows:
