@@ -72,6 +72,19 @@ parser_plan.add_argument(
     help='show only direct trains')
 
 
+# 'favourites' sub-parser
+parser_favourites = subparsers.add_parser(
+    'favourites',
+    help='run a favourited journey query')
+parser_favourites.add_argument(
+    'expression',
+    nargs=1,
+    metavar='EXPR',
+    default=None,
+    type=str,
+    help='bookmark or search term')
+
+
 # Main-scope code
 if __name__ == '__main__':
     # Parse arguments
@@ -82,3 +95,5 @@ if __name__ == '__main__':
     # Process according to selected command
     if args.command == 'plan':
         q.plan()
+    elif args.command == 'favourites':
+        pass
