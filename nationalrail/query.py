@@ -2,7 +2,7 @@
 """
 query
 =====
-Define the Query class to handle web URL queries.
+Define the `nationalrail` Query class to handle web URL queries.
 
 """
 
@@ -15,7 +15,7 @@ from nationalrail.codes import lookup
 
 
 class Query:
-    """Class, to generate a URL request from a set of command-line arguments.
+    """Class to generate a URL request from a set of command-line arguments.
 
     """
 

@@ -8,8 +8,7 @@ from nationalrail import __version__ as version
 
 # Create top-level parser
 parser = argparse.ArgumentParser(
-    description='',
-    fromfile_prefix_chars='@')
+    description='Command-line tools for UK national rail queries')
 parser.add_argument(
     '-V', '--version',
     action='version',
@@ -72,46 +71,6 @@ parser_plan.add_argument(
     required=False,
     help='show only direct trains')
 
-# 'live' sub-parser
-parser_live = subparsers.add_parser(
-    'live',
-    help='check a live departure or arrival')
-# Required arguments: from, to
-parser_live.add_argument(
-    'from',
-    nargs=1,
-    metavar='FROM',
-    default=None,
-    type=str,
-    help='set origin station')
-parser_live.add_argument(
-    'to',
-    nargs=1,
-    metavar='TO',
-    default=None,
-    type=str,
-    help='set destination station')
-parser_live.add_argument(
-    'direction',
-    nargs=1,
-    metavar='DIRECTION',
-    choices=['dep', 'arr'],
-    default='dep',
-    type=str,
-    help='whether to bring up live departures or arrivals')
-
-# 'favourites' sub-parser
-parser_favourites = subparsers.add_parser(
-    'favourites',
-    help='run a favourited journey query')
-parser_favourites.add_argument(
-    'expression',
-    nargs=1,
-    metavar='EXPR',
-    default=None,
-    type=str,
-    help='bookmark or search term')
-
 
 # Main-scope code
 if __name__ == '__main__':
@@ -123,7 +82,3 @@ if __name__ == '__main__':
     # Process according to selected command
     if args.command == 'plan':
         q.plan()
-    elif args.command == 'live':
-        raise ValueError
-    elif args.command == 'favourites':
-        raise ValueError
