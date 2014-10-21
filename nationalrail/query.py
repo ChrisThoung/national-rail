@@ -93,7 +93,7 @@ class Query:
         # Check for `station` in `lookup`
         if station not in lookup.values():
             # Identify all long-form name matches in `lookup`
-            matches = [s for s in lookup.keys() if re.match(station, s)]
+            matches = [s for s in lookup.keys() if re.search(station, s)]
             matches = list(sorted(matches))
             # If more than one match, print list
             if len(matches) > 1:
