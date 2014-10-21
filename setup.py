@@ -57,6 +57,7 @@ setup(
     url='https://github.com/cthoung/national-rail',
     packages=[
         'nationalrail',
+        'nationalrail.tests',
         ],
     scripts=[
         'scripts/national-rail.py',
