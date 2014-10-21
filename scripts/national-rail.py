@@ -65,11 +65,11 @@ parser_plan.add_argument(
     required=False,
     help='when to leave relative to the other options')
 parser_plan.add_argument(
-    '--direct',
+    '--allow-non-direct',
     action='store_true',
-    default=True,
+    default=False,
     required=False,
-    help='show only direct trains')
+    help='allow for non-direct trains')
 
 
 # Main-scope code
