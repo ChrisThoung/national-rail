@@ -93,7 +93,7 @@ class Query:
         # Check for `station` in `lookup`
         if station not in lookup.values():
             # Identify all long-form name matches in `lookup`
-            matches = [s for s in lookup.keys() if re.match(station, s)]
+            matches = [s for s in lookup.keys() if re.search(station, s)]
             matches = list(sorted(matches))
             # If more than one match, print list
             if len(matches) > 1:
@@ -141,9 +141,10 @@ class Query:
                         '%02d' % (now.month) +
                         str(now.year)[2:4])
             elif date == 'tomorrow':
-                date = ('%02d' % (now.day) +
-                        '%02d' % (now.month + 1) +
-                        str(now.year)[2:4])
+                tomorrow = now + datetime.timedelta(days=1)
+                date = ('%02d' % (tomorrow.day) +
+                        '%02d' % (tomorrow.month) +
+                        str(tomorrow.year)[2:4])
             else:
                 raise ValueError('Invalid `date` argument: %s' % (date))
         # Return
