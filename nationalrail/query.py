@@ -58,7 +58,7 @@ class Query:
             when, ]
         url = '/'.join(pieces)
         # Add direct switch if required
-        if not args['allow-non-direct']:
+        if not args['allow_non_direct']:
             url = url + '?directonly'
         # Call
         webbrowser.open(url, new=2, autoraise=True)

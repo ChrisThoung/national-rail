@@ -69,7 +69,7 @@ parser_plan.add_argument(
     action='store_true',
     default=False,
     required=False,
-    help='allow for non-direct trains')
+    help='allow non-direct trains in query')
 
 
 # Main-scope code
