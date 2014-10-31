@@ -141,9 +141,10 @@ class Query:
                         '%02d' % (now.month) +
                         str(now.year)[2:4])
             elif date == 'tomorrow':
-                date = ('%02d' % (now.day) +
-                        '%02d' % (now.month + 1) +
-                        str(now.year)[2:4])
+                tomorrow = now + datetime.timedelta(days=1)
+                date = ('%02d' % (tomorrow.day) +
+                        '%02d' % (tomorrow.month) +
+                        str(tomorrow.year)[2:4])
             else:
                 raise ValueError('Invalid `date` argument: %s' % (date))
         # Return
