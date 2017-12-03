@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+# For Python 2 compatibility
+from __future__ import print_function
 
 import csv
 import os
