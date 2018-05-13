@@ -1,5 +1,4 @@
-#!/usr/bin/python3
-
+# -*- coding: utf-8 -*-
 
 import argparse
 
@@ -70,15 +69,3 @@ parser_plan.add_argument(
     default=True,
     required=False,
     help='show only direct trains')
-
-
-# Main-scope code
-if __name__ == '__main__':
-    # Parse arguments
-    args = parser.parse_args()
-    # Set up Query object
-    from nationalrail.query import Query
-    q = Query(args)
-    # Process according to selected command
-    if args.command == 'plan':
-        q.plan()

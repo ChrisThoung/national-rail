@@ -5,7 +5,7 @@ from __future__ import print_function
 
 import csv
 import os
-from distutils.core import setup
+from setuptools import setup
 
 
 # Specify the file of station codes, available from:
@@ -37,7 +37,7 @@ if not for_release:
     VERSION += '.dev'
 
 # Write package version.py
-with open(os.path.join('nationalrail', 'version.py'), 'wt') as f:
+with open(os.path.join('nationalrail', 'version.py'), 'w') as f:
     version_to_write = """\
 MAJOR = '%d'
 MINOR = '%d'
@@ -59,10 +59,10 @@ setup(
     url='https://github.com/cthoung/national-rail',
     packages=[
         'nationalrail',
-        ],
-    scripts=[
-        'scripts/national-rail.py',
-        ],
+    ],
+    entry_points = {
+        'console_scripts': ['nationalrail=nationalrail.__main__:main'],
+    },
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',
@@ -73,7 +73,9 @@ setup(
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
         'Topic :: Utilities',
-        ],
+    ],
     platforms=['Any'],
-    )
+)
